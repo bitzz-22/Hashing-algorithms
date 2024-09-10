@@ -30,13 +30,13 @@ uint32_t sigma_1(uint32_t x);
 
 void initialise(struct hash* sha);
 
-void pad(char* message,struct hash* sha);
+void pad(uint8_t* message,struct hash* sha);
 
 void update_W(uint32_t* block , uint32_t* W);
 
 void main_(struct hash* sha);
 
-void SHA(char* message,uint64_t* hash);
+void SHA256(uint8_t* message,uint64_t* hash);
 
 
 
@@ -85,7 +85,7 @@ void initialise(struct hash* sha){
 	}
 }
 
-void pad(char* message,struct hash* sha){
+void pad(uint8_t* message,struct hash* sha){
 
 	uint64_t length=strlen(message);
 	int k=((512 + 448 - ((length*8) % 512 + 8)) % 512)/8;
@@ -172,7 +172,7 @@ void main_(struct hash* sha){
 }
 
 
-void SHA(char* message,uint64_t* hash){
+void SHA256(uint8_t* message,uint64_t* hash){
 	struct hash sha;
 	initialise(&sha);
 	pad(message,&sha);
