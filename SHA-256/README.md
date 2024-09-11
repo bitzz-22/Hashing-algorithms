@@ -32,3 +32,7 @@ To compute hash of different data you can supply your data to the function in a 
 ```bash
 gcc -o sha256_example SHA256.c
 ./sha256_example
+```
+
+I followed this paper for the implimentation:
+https://eips.ethereum.org/assets/eip-2680/sha256-384-512.pdf
